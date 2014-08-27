@@ -35,9 +35,19 @@ define(['model/_estudianteModel'], function() {
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
+            
+             if(parseInt(attrs.puntosCailidad)/parseInt(attrs.creditos)<3.25)
+              
+            {
+                 validationMessage = "no puedes inscribirte a la u con un promedio inferior a 3.25";
+            }
+            
             if(validationMessage.length>0){
                return validationMessage;
             }
+            
+           
+            
         }
 
     });

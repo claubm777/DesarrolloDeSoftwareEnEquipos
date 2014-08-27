@@ -34,6 +34,34 @@ define(['controller/_profesorController','delegate/profesorDelegate'], function(
             this.listAniosVinculacionTemplate = _.template($('#profesorAniosVinculacionList').html());
             this.listAniosVinculacionModelClass = options.listModelClass;
      },
+     
+     
+     
+      average: function(params){
+            var publicaciones = parseInt(params.numPublicaciones) ;
+            var aniosExperiencia = parseInt(params.aniosExperiencia) ;
+         
+            
+           
+           if(aniosExperiencia>20 ||( publicaciones/aniosExperiencia)>3)
+               
+               {
+                   alert("el profesor es titular");
+               }
+               
+               
+               else if (aniosExperiencia>10 ||  (publicaciones/aniosExperiencia)>2 )
+               {
+                     alert("el profesor es asistente");
+               }
+               
+               
+               else{
+                 alert("el profesor es de planta");
+               }
+           
+        },
+        
      _renderAniosVinculacion: function() {
             var self = this;
             /*Aquí se utiliza el efecto gráfico backbone deslizar. “$el” hace referencia al <div id=”main”> ubicado en el index.html. Dentro de este div se despliegue la tabla.*/

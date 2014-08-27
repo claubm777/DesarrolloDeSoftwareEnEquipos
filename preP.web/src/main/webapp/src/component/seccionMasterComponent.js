@@ -41,10 +41,15 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
                 self.model.set('deleteinscritos_seccion', []);
                 
                 params.model.inscritos=''+inscritos_seccionModels.models.length;
-                
+               var porcent=0;
+                var c=0;
                 for (var i = 0; i < inscritos_seccionModels.models.length; i++) {
                     var m =inscritos_seccionModels.models[i];
                     var modelCopy = m.clone();
+                     if(parseFloat(modelCopy.get('puntosCailidad'))/parseFloat(modelCopy.get('creditos'))>=4.0)
+                        {
+                            c+=1;
+                        }
                     if (m.isCreated()) {
                         //set the id to null
                         modelCopy.unset('id');
@@ -53,6 +58,9 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
                         self.model.get('updateinscritos_seccion').push(modelCopy.toJSON());
                     }
                 }
+                 porcent=c*100/params.model.inscritos;
+                alert("El "+porcent+"% de los estudiantes de la seccion "+params.model.name+" se pueden extracreditar" );
+                
                 for (var i = 0; i < inscritos_seccionModels.deletedModels.length; i++) {
                     var m = inscritos_seccionModels.deletedModels[i];
                     self.model.get('deleteinscritos_seccion').push(m.toJSON());
@@ -134,7 +142,7 @@ define(['controller/selectionController', 'model/cacheModel', 'model/seccionMast
                 
                     Backbone.on(self.inscritos_seccionComponent.componentId + '-toolbar-add', function() {
                         var selection = new App.Controller.SelectionController({"componentId":"inscritos_seccionComponent"});
-                        App.Utils.getComponentList('estudianteComponent', function(componentName, model) {
+                        App.Utils.getComponentList('estudianteComponent', function(componentName, model) {                            
                             if (model.models.length == 0) {
                                 alert('There is no Inscritos_seccions to select.');
                             } else {

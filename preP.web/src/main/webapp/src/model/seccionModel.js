@@ -38,6 +38,16 @@ define(['model/_seccionModel'], function() {
             if(validationMessage.length>0){
                return validationMessage;
             }
+        },
+        
+        funcionara: function(attrs,options){
+            var validationMessage = "";
+            if(!attrs.profesor_seccionId){
+                validationMessage = "Tienes que seleccionar un id de profesor :)"+attrs.profesor_seccionId;
+            }
+            if(validationMessage.length>0){
+               return validationMessage;
+            }
         }
 
     });

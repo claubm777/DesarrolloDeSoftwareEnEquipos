@@ -4,10 +4,10 @@
     <table class="table striped">
     <thead>
     <tr>
-		 <th>Name</th>
+		 <th>Nombre</th>
 		 <th>Creditos</th>
 		 <th>Puntos Cailidad</th>
-    <th>Actions</th>
+    <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -18,10 +18,10 @@
 		<td><%= htmlEncode(estudiante.getDisplay('puntosCailidad')) %></td>
     <td>
     <% if(showEdit) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-estudiante-edit',{id:<%= estudiante.id %>}); return false" >Edit</a> |
+    <a onclick="Backbone.trigger('<%= componentId %>-estudiante-edit',{id:<%= estudiante.id %>}); return false" >Editar</a> |
 	<% } %> 
 	<% if(showDelete) {%>
-    <a onclick="Backbone.trigger('<%= componentId %>-estudiante-delete',{id:<%= estudiante.id %>}); return false" >Delete</a> 
+    <a onclick="Backbone.trigger('<%= componentId %>-estudiante-delete',{id:<%= estudiante.id %>}); return false" >Eliminar</a> 
 	<% } %>    
 	</td>
     </tr>
@@ -38,7 +38,7 @@
     <input type="hidden" name="id" value="<%= estudiante.id %>"/>
     <% }%>
 		<div class="form-group" >
-		<label for="name">Name</label>
+		<label for="name">Nombre</label>
     	<input type="text" class="form-control" id="name" name="name" placeholder="Enter value" value="<%= estudiante.get('name') %>"/>	
 		</div>
 		<div class="form-group" >

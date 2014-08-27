@@ -35,20 +35,15 @@ define(['model/_seccionModel'], function() {
             if(!attrs.name){
                 validationMessage = "The name can't be empty.";
             }
-            if(validationMessage.length>0){
-               return validationMessage;
-            }
-        },
-        
-        funcionara: function(attrs,options){
-            var validationMessage = "";
             if(!attrs.profesor_seccionId){
-                validationMessage = "Tienes que seleccionar un id de profesor :)"+attrs.profesor_seccionId;
+                validationMessage = "Tienes que seleccionar un id de profesor";
             }
             if(validationMessage.length>0){
                return validationMessage;
             }
         }
+        
+        
 
     });
 

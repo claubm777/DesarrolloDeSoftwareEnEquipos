@@ -37,7 +37,25 @@ define(['component/_CRUDComponent', 'controller/toolbarController', 'model/toolb
             var self = this;
             this.addButton({name: "AniosVinculacion", icon: "glyphicon-stats", }, function() {
                  self.componentController.profesorAniosVinculacion();
-});
+      
+        });
+        
+        
+         this.toolbarModel.set('showPrint', false);
+           this.toolbarModel.set('showSearch', false);
+           this.toolbarModel.set('createName', 'Crear');
+            this.toolbarModel.set('refreshName', 'Refrescar');
+             this.toolbarModel.set('title', 'Profesor');
+             this.toolbarModel.set('saveName', 'Guardar');
+             this.toolbarModel.set('cancelName', 'Cancelar');
+          
+            Backbone.on(self.componentId + '-tipoProfe', function(params) {
+                self.componentController.average(params);
+          });
+
+
+
+
      }
     });
     return App.Component.ProfesorComponent;
